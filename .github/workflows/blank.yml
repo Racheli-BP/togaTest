@@ -26,10 +26,11 @@ jobs:
           
 
       - name: Login Docker registry
+      
         run: docker login --username ${{ secrets.USER_NAME }} --password  ${{ secrets.TOKEN }}
 
 
       - name: Push Docker image - continue
         run: |
-          docker push ghcr.io/rachellash/togatest:latest
+          docker push togatest:latest
 
