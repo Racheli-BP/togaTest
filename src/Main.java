@@ -31,8 +31,10 @@ public class Main {
             {
                 arr[i] = Integer.parseInt(params[i]);
             }
-            System.out.println("Result: " + findPeek(arr, 0, arr.length - 1));
+            while (true)
+                System.out.println("Result: " + findPeek(arr, 0, arr.length - 1));
         }
-        else System.out.println("No parameters found.");
+        else while (true)
+            System.out.println("No parameters found.");
     }
 }
