@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:  
+      -main 
 
 jobs:
   build-and-push:
@@ -11,15 +14,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
 
       - name: Build Docker image
         run: |
           docker build -t togatest:latest .
-          docker run --rm  togatest:latest 1 2 3
-          docker run --rm  togatest:latest 4 6 5
-          docker run --rm  togatest:latest 1 2 1
+          docker run -e PARAMS="1 2 3" togatest:latest
+          docker run -e PARAMS="4 6 5" togatest:latest
+          docker run -e PARAMS="1 2 1" togatest:latest
           
 
       - name: Push Docker image
@@ -31,5 +34,5 @@ jobs:
 
       - name: Push Docker image - continue
         run: |
-          docker push ghcr.io/Racheli-BP/togatry:latest
+          docker push ghcr.io/Racheli-BP/togatest:latest
 
