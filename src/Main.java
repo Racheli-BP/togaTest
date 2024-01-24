@@ -1,6 +1,9 @@
 public class Main {
     public static int findPeek(int[] nums, int start, int end) {
 
+        if (nums.length == 0)
+            return -1;
+
         int mid = start + (end - start) / 2;
 
         if ((mid == 0 || nums[mid] > nums[mid - 1]) && (mid == nums.length - 1 || nums[mid] > nums[mid + 1]))
@@ -20,11 +23,16 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        int[] arr = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            arr[i] = Integer.parseInt(args[i]);
+        if (System.getenv("PARAMS") != null)
+        {
+            String[] params = System.getenv("PARAMS").split(" ");
+            int[] arr = new int[params.length];
+            for (int i = 0; i < params.length; i++)
+            {
+                arr[i] = Integer.parseInt(params[i]);
+            }
+            System.out.println("Result: " + findPeek(arr, 0, arr.length - 1));
         }
-        System.out.println("Result: " + findPeek(arr, 0, arr.length - 1));
+        else System.out.println("No parameters found.");
     }
 }

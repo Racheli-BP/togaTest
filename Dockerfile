@@ -1,4 +1,5 @@
 FROM openjdk
+WORKDIR togatry
 COPY . .
-WORKDIR /src
-CMD ["java", "Main", "${PARAMS}"]
+WORKDIR /togatry/src
+CMD ["java", "Main.java"]
