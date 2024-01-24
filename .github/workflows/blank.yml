@@ -1,4 +1,4 @@
-name: Build and push Docker image of findPeek
+name: Build and push Docker image of findPeek 
 
 on:
   push:
@@ -19,9 +19,9 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ghcr.io/Racheli-BP/togaTest:latest .
-          docker run --rm your_image_name 1 2 3
-          docker run --rm your_image_name 4 6 5
-          docker run --rm your_image_name 1 2 1
+          docker run --rm togaTest 1 2 3
+          docker run --rm togaTest 4 6 5
+          docker run --rm togaTest 1 2 1
 
           
 
