@@ -16,10 +16,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/Racheli-BP/togatest:latest .
-          docker run --rm  ghcr.io/Racheli-BP/togatest:latest 1 2 3
-          docker run --rm  ghcr.io/Racheli-BP/togatest:latest 4 6 5
-          docker run --rm  ghcr.io/Racheli-BP/togatest:latest 1 2 1
+          docker build -t togatest:latest .
+          docker run --rm  togatest:latest 1 2 3
+          docker run --rm  togatest:latest 4 6 5
+          docker run --rm  togatest:latest 1 2 1
           
 
       - name: Push Docker image
