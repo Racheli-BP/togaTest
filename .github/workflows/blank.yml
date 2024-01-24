@@ -13,8 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Docker
-        uses: docker/setup-docker@v1
 
       - name: Build Docker image
         run: |
@@ -22,7 +20,6 @@ jobs:
           docker run --rm  ghcr.io/Racheli-BP/togaTest:latest 1 2 3
           docker run --rm  ghcr.io/Racheli-BP/togaTest:latest 4 6 5
           docker run --rm  ghcr.io/Racheli-BP/togaTest:latest 1 2 1
-
           
 
       - name: Push Docker image
