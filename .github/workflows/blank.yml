@@ -31,5 +31,5 @@ jobs:
 
       - name: Push Docker image - continue
         run: |
-          docker push togatest:latest
+          docker push ghcr.io/rachelb/togatest:latest
 
