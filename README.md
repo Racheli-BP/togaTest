@@ -1,6 +1,6 @@
 ## togaTest
 
-### for run the docker with arguments run:
+### to run the docker with arguments run:
 docker run -e PARAMS=<array params> togatest:latest
 #### the output - the index of the peak will be printed.
 
