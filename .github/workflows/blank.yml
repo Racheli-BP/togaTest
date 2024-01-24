@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t racheli-bp/togatest:latest .
+          docker build -t rachelbp/togatest:latest .
          # docker run -e PARAMS="1 2 3" togatest:latest
          # docker run -e PARAMS="4 6 5" togatest:latest
          # docker run -e PARAMS="1 2 1" togatest:latest
@@ -39,11 +39,11 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
           # Push Docker image to GitHub Container Registry
-          docker build -t ghcr.io/racheli-bp/togatest:latest -t ghcr.io/racheli-bp/togatest:${{ github.sha }} --push .
+          docker build -t ghcr.io/rachelbp/togatest:latest -t ghcr.io/rachelbp/togatest:${{ github.sha }} --push .
 
           # Run Docker image 
-          docker run -e PARAMS="1 2 3" ghcr.io/racheli-bp/togatest:latest
-          docker run -e PARAMS="4 6 5" ghcr.io/racheli-bp/togatest:latest
-          docker run -e PARAMS="1 2 1" ghcr.io/racheli-bp/togatest:latest
+          docker run -e PARAMS="1 2 3" ghcr.io/rachelbp/togatest:latest
+          docker run -e PARAMS="4 6 5" ghcr.io/rachelbp/togatest:latest
+          docker run -e PARAMS="1 2 1" ghcr.io/rachelbp/togatest:latest
 
 
