@@ -25,11 +25,11 @@ jobs:
          # docker run -e PARAMS="1 2 1" togatest:latest
 
           
-      - name: Push Docker image to GitHub Packages
-        uses: docker/build-push-action@v3
-        with:
-          repository: Racheli-BP/togatest
-          tag: latest
+    #  - name: Push Docker image to GitHub Packages
+    #    uses: docker/build-push-action@v3
+    #    with:
+     #     repository: Racheli-BP/togatest
+     #     tag: latest
 
 
       - name: push Docker image
