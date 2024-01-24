@@ -39,11 +39,11 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
           # Push Docker image to GitHub Container Registry
-          docker build -t ghcr.io/${{ github.repository }}:latest -t ghcr.io/${{ github.repository }}:${{ github.sha }} --push .
+          docker build -t ghcr.io/togatest:latest -t ghcr.io/${{ github.repository }}:${{ github.sha }} --push .
 
           # Run Docker image 
-          docker run -e PARAMS="1 2 3" ghcr.io/${{ github.repository }}:latest
-          docker run -e PARAMS="4 6 5" ghcr.io/${{ github.repository }}:latest
-          docker run -e PARAMS="1 2 1" ghcr.io/${{ github.repository }}:latest
+          docker run -e PARAMS="1 2 3" ghcr.io/togatest:latest
+          docker run -e PARAMS="4 6 5" ghcr.io/togatest:latest
+          docker run -e PARAMS="1 2 1" ghcr.io/togatest:latest
 
 
