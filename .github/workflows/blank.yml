@@ -32,6 +32,7 @@ jobs:
           username: ${{ secrets.GITHUB_ACTOR }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Push Docker image - continue
         run: |
-          docker push ghcr.io/Racheli-BP/togaTest:latest
+          docker push ghcr.io/Racheli-BP/togatry:latest
 
