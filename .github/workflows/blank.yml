@@ -1,4 +1,4 @@
-name: Build and push Docker image of findPeek 
+name: Build and push Docker image of findPeak 
 
 on:
   push:
@@ -16,32 +16,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-
       - name: Build Docker image
-        run: |
-          docker build -t rachelbenpo/togatest:latest .
-         # docker run -e PARAMS="1 2 3" togatest:latest
-         # docker run -e PARAMS="4 6 5" togatest:latest
-         # docker run -e PARAMS="1 2 1" togatest:latest
-
-          
-    #  - name: Push Docker image to GitHub Packages
-    #    uses: docker/build-push-action@v3
-    #    with:
-     #     repository: rachelbenpo/togatest
-     #     tag: latest
-
+        run: docker build -t rachelbenpo/togatest:latest .
 
       - name: push Docker image
         run: |
-         
           # Authenticate with GitHub Container Registry
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
           # Push to Registry
           docker build -t ghcr.io/${{ github.repository }}:latest -t ghcr.io/${{ github.repository }}:${{ github.sha }} --push .
-
-          # Run Docker image 
+        
+      - name: run Docker image
+        run: |
           docker run -e PARAMS="1 2 3" ghcr.io/${{ github.repository }}:latest
           docker run -e PARAMS="4 6 5" ghcr.io/${{ github.repository }}:latest
           docker run -e PARAMS="1 2 1" ghcr.io/${{ github.repository }}:latest
