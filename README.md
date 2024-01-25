@@ -11,3 +11,5 @@ docker run -e PARAMS="1 2 1" togatest:latest
 
 ### outputs of theese commands have to be: 2  1  1
 because theese are the peak indexes of theese arrays
+
+you can get the output in the logs of the workflow
